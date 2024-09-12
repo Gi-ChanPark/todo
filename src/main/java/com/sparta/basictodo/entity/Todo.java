@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Todo {
+public class Todo extends Timestamped{
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,6 +22,11 @@ public class Todo {
         this.todo = todo;
         this.managerName = managerName;
         this.password = password;
+    }
+
+    public void update(String todo, String ManagerName) {
+        this.todo = todo;
+        this.managerName = managerName;
     }
 
 }
